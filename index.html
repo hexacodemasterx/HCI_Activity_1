@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Interface with Enhanced HCI Features</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome!</h1>
+            <p>Select an option below:</p>
+            <button id="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        </header>
+
+        <div class="menu">
+            <button class="menu-button" onclick="triggerVoiceFeedback('Messages')" ondblclick="openModal('Messages')">Messages</button>
+            <button class="menu-button" onclick="triggerVoiceFeedback('Contacts')" ondblclick="openModal('Contacts')">Contacts</button>
+            <button class="menu-button" onclick="triggerVoiceFeedback('Settings')" ondblclick="openModal('Settings')">Settings</button>
+        </div>
+
+        <footer>
+            <button class="settings-button" onclick="toggleSettings()">Reaction Time & Display Options</button>
+            <div id="settings" class="settings">
+                <div class="setting-item">
+                    <label for="reaction-time">Reaction Time:</label>
+                    <select id="reaction-time">
+                        <option value="normal">Normal</option>
+                        <option value="medium">Medium</option>
+                        <option value="slow">Slow</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <label for="font-size">Font Size:</label>
+                    <select id="font-size" onchange="changeFontSize(this.value)">
+                        <option value="16px">Normal</option>
+                        <option value="18px">Large</option>
+                        <option value="20px">Extra Large</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <label for="button-spacing">Button Spacing:</label>
+                    <select id="button-spacing" onchange="changeButtonSpacing(this.value)">
+                        <option value="normal">Normal</option>
+                        <option value="medium">Medium</option>
+                        <option value="wide">Wide</option>
+                    </select>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <p id="modal-text"></p>
+            <button onclick="confirmAction()" class="confirm-button">Confirm</button>
+            <button onclick="closeModal()" class="cancel-button">Cancel</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
